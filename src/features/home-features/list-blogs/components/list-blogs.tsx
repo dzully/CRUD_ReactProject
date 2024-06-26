@@ -1,9 +1,8 @@
-import { useGetAllPosts } from "../lib/hooks/use-get-all-posts";
+import { useHandlePosts } from "../lib/hooks/use-handle-posts";
 import { Item } from "./item";
 
 export const ListBlogs = () => {
-  const { data } = useGetAllPosts();
-  console.log({ data });
+  const { data } = useHandlePosts();
 
   return (
     <ul role="list" className="flex flex-col gap-2">

@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+import { useHandlePosts } from "../lib/hooks/use-handle-posts";
 import { ListPostsType } from "../types/list-posts.type";
 
 type ItemProps = {
@@ -6,8 +7,27 @@ type ItemProps = {
 };
 
 export const Item = ({ item }: ItemProps) => {
+  const { handleUpdatePost, handleDeletePost } = useHandlePosts();
+
   const [edit, setEdit] = useState(false);
-  const [blogPost, setBlogPost] = useState(item);
+  const [content, setContent] = useState(item.content);
+  const [title, setTitle] = useState(item.title);
+
+  const handleUpdateBlog = () => {
+    const blogPost = {
+      title,
+      content,
+    };
+
+    handleUpdatePost(item.id, blogPost);
+    setEdit(false);
+  };
+
+  const handleReset = () => {
+    setTitle(item.title);
+    setContent(item.content);
+    setEdit(false);
+  };
 
   const handleAction = (action: string) => () => {
     switch (action) {
@@ -15,27 +35,26 @@ export const Item = ({ item }: ItemProps) => {
         setEdit(true);
         break;
       case "Save":
-        setEdit(false);
+        handleUpdateBlog();
         break;
       case "Cancel":
-        setEdit(false);
-        setBlogPost(item);
+        handleReset();
         break;
       case "Delete":
-        console.log("Delete");
+        handleDeletePost(item.id);
         break;
       default:
         break;
     }
   };
 
-  const handleUpdateDetail =
-    (label: string) => (e: ChangeEvent<HTMLInputElement>) => {
-      setBlogPost({
-        ...blogPost,
-        [label]: e.target.value,
-      });
-    };
+  const handleUpdateTitle = (e: ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+
+  const handleUpdateDetail = (e: ChangeEvent<HTMLInputElement>) => {
+    setContent(e.target.value);
+  };
 
   return (
     <li className="flex justify-between gap-x-6 py-5 border border-gray-200 rounded-md px-4">
@@ -45,24 +64,24 @@ export const Item = ({ item }: ItemProps) => {
             <input
               type="text"
               className="text-sm font-semibold leading-6 text-gray-900 border border-gray-300 rounded-md px-2"
-              value={blogPost.title}
-              onChange={handleUpdateDetail("name")}
+              value={title}
+              onChange={handleUpdateTitle}
             />
           ) : (
             <p className="text-sm font-semibold leading-6 text-gray-900">
-              {blogPost.title}
+              {title}
             </p>
           )}
           {edit ? (
             <input
               type="text"
               className="text-sm font-semibold leading-6 text-gray-900 border border-gray-300 rounded-md px-2"
-              value={blogPost.content}
-              onChange={handleUpdateDetail("email")}
+              value={content}
+              onChange={handleUpdateDetail}
             />
           ) : (
             <p className="text-sm font-semibold leading-6 text-gray-900">
-              {blogPost.content}
+              {content}
             </p>
           )}
         </div>

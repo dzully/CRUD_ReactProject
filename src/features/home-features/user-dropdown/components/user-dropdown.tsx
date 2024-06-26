@@ -4,13 +4,6 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { useStore } from "@nanostores/react";
 import { useNavigate } from "react-router-dom";
 
-const usere = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
-
 const userNavigation = [{ name: "Sign out", href: "#" }];
 
 function classNames(...classes: string[]) {
@@ -20,8 +13,6 @@ function classNames(...classes: string[]) {
 export const UserDropdown = () => {
   const { user } = useStore($signInStore);
   const navigate = useNavigate();
-
-  console.log({ user });
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
@@ -41,7 +32,11 @@ export const UserDropdown = () => {
           <MenuButton className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
             <span className="absolute -inset-1.5" />
             <span className="sr-only">Open user menu</span>
-            <img className="h-8 w-8 rounded-full" src={usere.imageUrl} alt="" />
+            <div className="rounded-full bg-[black] w-8 h-8 flex items-center justify-center">
+              <span className="text-white font-semibold text-sm">
+                {user?.email?.[0].toUpperCase()}
+              </span>
+            </div>
           </MenuButton>
         </div>
         <MenuItems
