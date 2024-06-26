@@ -1,8 +1,9 @@
+import { environment } from "@shared/config/environment";
 import axios from "redaxios";
 
 const createInstance = (token: string) =>
   axios.create({
-    baseURL: import.meta.env.VITE_BASE_URL as string,
+    baseURL: environment.BASE_URL as string,
     headers: {
       Authorization: `Bearer ${token}`,
     },

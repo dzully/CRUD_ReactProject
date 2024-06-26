@@ -1,0 +1,71 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": 1,
+      "type": "Feature",
+      "properties": {
+        "name": "Sg. Muar (WTP Chin Chin), Sg. Chin - Chin (WTP Chin Chin)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [102.28285186804004, 6.080296746964592]
+      }
+    },
+    {
+      "id": 2,
+      "type": "Feature",
+      "properties": {
+        "name": "Asahan (WTP Asahan)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [101.48951445560726, 3.1454630107464965]
+      }
+    },
+    {
+      "id": 3,
+      "type": "Feature",
+      "properties": {
+        "name": "Durian Tunggal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [102.52238378314257, 5.7024653080005265]
+      }
+    },
+    {
+      "id": 4,
+      "type": "Feature",
+      "properties": {
+        "name": "Sg. Batang Melaka (WTP Gadek)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [101.95186207202192, 2.469086786972383]
+      }
+    },
+    {
+      "id": 5,
+      "type": "Feature",
+      "properties": {
+        "name": "Bunded Storage 1 (WTP Sebukor), Sg. Melaka"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.32649687697528, 2.014050754918884]
+      }
+    },
+    {
+      "id": 6,
+      "type": "Feature",
+      "properties": {
+        "name": "Sg. Muar (WTP Bertam), Sg. Melaka"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.02760548435975, 5.272259795242519]
+      }
+    }
+  ]
+}

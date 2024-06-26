@@ -1,0 +1,19 @@
+{
+  "title": "Daily Water Production",
+  "data": [
+    {
+      "wtp": "M003",
+      "production": 16187,
+      "unit": "m3",
+      "date": "2019-02-06",
+      "day": "Sunday"
+    },
+    {
+      "wtp": "M001",
+      "production": 4882,
+      "unit": "m3",
+      "date": "2019-07-31",
+      "day": "Wednesday"
+    }
+  ]
+}
