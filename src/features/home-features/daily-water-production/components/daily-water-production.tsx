@@ -3,7 +3,7 @@ import ListWaterProductionJson from "../lib/helpers/list-water-production.json";
 
 export const DailyWaterProduction = () => {
   return (
-    <div className="absolute top-0 right-0 bottom-0 z-50">
+    <div className="absolute top-0 right-0 bottom-0">
       <div className="flex flex-col m-2 rounded-lg h-[580px] w-[250px] p-1">
         <div className="mb-2 bg-[#00000080] w-full h-fit rounded-lg p-2">
           <span className="text-white text-center flex justify-center">
