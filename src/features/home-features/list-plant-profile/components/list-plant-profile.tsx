@@ -5,7 +5,7 @@ import { useState } from "react";
 import PlantProfileJson from "../lib/helpers/plant-profile.json";
 
 export const ListPlantProfile = () => {
-  const [selectedProfile, setSelectedProfile] = useState(null);
+  const [selectedProfile, setSelectedProfile] = useState<number | null>(null);
   const { mapSdk } = useStore($homeStore);
   useInitializeMarker();
 

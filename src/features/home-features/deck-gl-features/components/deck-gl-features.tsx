@@ -2,7 +2,7 @@ import { MapboxOverlay } from "@deck.gl/mapbox";
 import { $homeStore } from "@entities/home-entities/store/home-store";
 import { useInitializeMap } from "@features/map-sdk";
 import { useStore } from "@nanostores/react";
-import { BitmapLayer, HexagonLayer, LineLayer } from "deck.gl";
+import { BitmapLayer, HexagonLayer, LineLayer, Position } from "deck.gl";
 import mapboxgl from "mapbox-gl";
 import { useEffect } from "react";
 
@@ -16,10 +16,12 @@ type BartSegment = {
   inbound: number;
   outbound: number;
   from: {
+    coordinates: Position;
     name: string;
     coordinate: [longitude: number, latitude: number];
   };
   to: {
+    coordinates: Position;
     name: string;
     coordinate: [longitude: number, latitude: number];
   };

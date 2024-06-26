@@ -17,7 +17,7 @@ export const BumpChart = () => {
   ];
   const years = ["2001", "2002", "2003", "2004", "2005", "2006"];
 
-  const shuffle = (array) => {
+  const shuffle = (array: unknown[]) => {
     let currentIndex = array.length;
     let randomIndex = 0;
     while (currentIndex > 0) {
@@ -37,6 +37,7 @@ export const BumpChart = () => {
       { length: names.length },
       (_, i) => i + 1
     );
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     for (const _ of years) {
       const shuffleArray = shuffle([...defaultRanking]);
       names.forEach((name, i) => {
@@ -47,7 +48,16 @@ export const BumpChart = () => {
   };
 
   const generateSeriesList = () => {
-    const seriesList = [];
+    const seriesList: {
+      name: unknown;
+      symbolSize: number;
+      type: string;
+      smooth: boolean;
+      emphasis: { focus: string };
+      endLabel: { show: boolean; formatter: string; distance: number };
+      lineStyle: { width: number };
+      data: unknown;
+    }[] = [];
     const rankingMap = generateRankingData();
     rankingMap.forEach((data, name) => {
       const series = {
@@ -121,6 +131,7 @@ export const BumpChart = () => {
     };
 
     setOption(chartOption);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <ReactECharts option={option} style={{ height: "270px" }} />;

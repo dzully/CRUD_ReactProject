@@ -61,7 +61,7 @@ export const RingChartView = () => {
       chartInstance.current = echarts.init(chartRef.current);
     }
 
-    const option: echarts.EChartsOption = {
+    const option = {
       series: [
         {
           type: "gauge",
